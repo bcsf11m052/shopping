@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+@{
+    TermProject.Models.Database1Entities db = new TermProject.Models.Database1Entities();
+}
+<head>
+    @{
+        Layout = "~/views/shared/_Layout.cshtml";
+    }
+    <title>Clothes Fasion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+</head>
+<body>
+    <div id="body">
+        <h2><em>Kids</em> Collectin</h2>
+    </div>
+    <div id="black-tl">
+        <div id="black-tr">
+            <div id="black-br">
+                <div id="black-bl">
+                    @foreach (var p in db.Products)
+                    {
+                        if (p.Cid == 3)
+                        {
+                            <div class="black-box">
+                                <img src="~/images/@p.Image" width="100" height="100" /><br />
+                                Price: @p.Price<br />
+                                Description: @p.Description
+                                <p class="more">&gt; &gt; <a href="#">Add to cart</a></p>
+                            </div>
+                        }
+                    }
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

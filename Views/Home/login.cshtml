@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+@model TermProject.Models.User
+<head>
+    @{
+        Layout = "~/views/shared/_Layout.cshtml";
+    }
+    <title>Clothes Fasion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+</head>
+<body>
+    <div id="body">
+        <h2><em>Login Info</em></h2>
+    </div>
+    <div id="black-tl">
+        <div id="black-tr">
+            <div id="black-br">
+                <div id="black-bl">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.UserName)
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.UserName)
+                                        @Html.ValidationMessageFor(model => model.UserName)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Password)
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Password, new { type = "password" })
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                        <p>
+                                            <input type="submit" value="Login" />
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                    @*@using (Html.BeginForm("Login", "Home"))
+                    { 
+                       <p style="font-family:serif; font-size:20px">@Html.ActionLink("Login As Admin", "adminLogin", "Home")</p> 
+                        <table border="0" style="width:auto;">
+                            <tr style="height: 50px">
+                                <td style="text-align: right;font-family:Calibri;font-size: 19px">User Name</td>
+                                <td><input type="text" name="UserName" style="height: 30px;width: 250px;margin-left: 10px" /></td>
+                                <td style="width: auto"><span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span></span> </td>
+                            </tr>
+
+                            <tr style="height: 50px">
+                                <td style="text-align: right;font-family:Calibri;font-size: 19px">Password</td>
+                                <td><input type="password" name="Password" style="height: 30px;width: 250px;margin-left: 10px" /></td>
+                                <td><span style="font-family: Calibri; color: #218416; text-align: center"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span> </td>
+                            </tr>
+
+                            <tr style="height: 30px">
+                                <td colspan="3">
+                                    <input type="submit" value="Login" style="height: 30px;width: 100px;margin-left: 100px;font-size: 20px" />
+                                    
+                                </td>
+
+                            </tr>
+                        </table>
+                    }*@
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section Scripts
+{
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

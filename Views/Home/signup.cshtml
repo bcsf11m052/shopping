@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+@model TermProject.Models.User
+<head>
+    @{
+        Layout = "~/views/shared/_Layout.cshtml";
+    }
+    <title>Clothes Fasion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+</head>
+<body>
+    
+    <div id="body">
+        <h2><em>Login Info</em></h2>
+    </div>
+    <div id="black-tl">
+        <div id="black-tr">
+            <div id="black-br">
+                <div id="black-bl">
+                    <div id="checking"></div>
+                    @using (Html.BeginForm()){
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.UserName)
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.UserName)
+                                        @Html.ValidationMessageFor(model => model.UserName)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Password)
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.TextBoxFor(model => model.Password, new { type = "password" })
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                        <p>
+                                            <input type="button" value="SignUp" id="b1" />
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                    <div id="result"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#UserName').focus(function () {
+
+                var userName = $('#UserName').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').text("Checking...");
+                $.getJSON("/Home/CheckUserName?UserName=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+                    }
+                    else
+                    {
+
+                    }
+
+                });
+            });
+        });
+
+    </script>
+    @section Scripts
+{
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

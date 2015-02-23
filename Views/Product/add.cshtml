@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+@model TermProject.Models.Products
+<head>
+    @{
+        Layout = "~/views/shared/_Layout.cshtml";
+    }
+    <title>Clothes Fasion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+</head>
+<body>
+    <div id="body">
+        <h2><em>Add Item</em></h2>
+        @Html.ActionLink("Admin Menu", "Admin", "Product")
+    </div>
+    <div id="black-tl">
+        <div id="black-tr">
+            <div id="black-br">
+                <div id="black-bl">
+                    @using (Html.BeginForm("Save", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    { 
+                        @Html.ValidationSummary(true)
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @Html.Label("Name")
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.Name, new { type = "text" })
+                                        @Html.ValidationMessageFor(model => model.Name)
+                                        <br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       @Html.Label("Image")
+                                    </td>
+                                    <td>
+                                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                                        @Html.ValidationMessageFor(model => model.Image)
+                                        <br />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        @Html.Label("Price")
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.Price, new { type = "text"})
+                                        @Html.ValidationMessageFor(model => model.Price)
+                                        <br />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        @Html.Label("Code")
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.Code, new { type = "text" })
+                                        @Html.ValidationMessageFor(model => model.Code)
+                                        <br />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        @Html.Label("Category ID")
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.Cid, new { type = "text" })
+                                        @Html.ValidationMessageFor(model => model.Cid)
+                                        <br />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        @Html.Label("Description")
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.Description, new { type = "text" })
+                                        @Html.ValidationMessageFor(model => model.Description)
+                                        <br />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+
+                        <input type="submit" value="Add" />
+
+                    }
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

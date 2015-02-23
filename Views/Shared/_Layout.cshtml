@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @section Scripts
+{
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</head>
+<body>
+    <div id="header">
+        <h1><em>Shop</em><strong>At Home</strong></h1>
+    </div>
+    <div id="left-person"></div>
+    <div id="uppers">
+        <form action="#">
+            <input type="text" name="q" placeholder="Enter product code" id="q" />
+            <input type="image" name="s" src="~/images/btn_header.gif" id="s" />
+        </form>
+        <div id="nav-top">
+            <ul>
+                <li>@Html.ActionLink("LOGIN |", "Login", "Home")</li>
+                <li>@Html.ActionLink(" SIGNUP", "Signup", "Home")</li>
+            </ul>
+        </div>
+    </div>
+    <div id="nav">
+        <div>
+            <ul>
+                <li>@Html.ActionLink("HOME |", "Index", "Home")</li>
+                <li>@Html.ActionLink("ABOUT US |", "About", "Home")</li>
+                <li>@Html.ActionLink("CONTACT US |", "Contact", "Home")</li>
+                
+                
+                <li>@Html.ActionLink("MEN COLLECTION |", "Men", "Home")</li>
+                <li>@Html.ActionLink("WOMENCOLLECCTION |", "Women", "Home")</li>
+                <li>@Html.ActionLink("KIDS COLLECTION", "Kids", "Home")</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <ul>
+            <li> </li>
+        </ul>
+    </div>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <div id="footer">
+        <div id="tips">
+            <h2><em>Fasion</em> tips</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse metus. Nunc at velit a erat dapibus ullamcorper. Mauris posuere lacus et libero. Fusce pretium</p>
+        </div>
+    </div>
+    <div class="clear"></div>
+</body>
+</html>

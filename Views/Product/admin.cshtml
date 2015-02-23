@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    @{
+        Layout = "~/views/shared/_Layout1.cshtml";
+    }
+    <title>Clothes Fasion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+</head>
+<body>
+    <div id="body">
+        <h2><em>Admin</em> Menu</h2>
+    </div>
+        <div id="black-tl">
+            <div id="black-tr">
+                <div id="black-br">
+                    <div id="black-bl">
+                        <ul>
+                            <li style="font-size:15px">@Html.ActionLink("Add Item", "Add", "Product")</li>
+                            <li style="font-size:15px">@Html.ActionLink("Delete Item", "Delete", "Product")</li>
+                            <li style="font-size:15px">@Html.ActionLink("Update Item", "Update", "Product")</li>
+                            <li style="font-size:15px">@Html.ActionLink("View all Item", "display", "Product")</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
